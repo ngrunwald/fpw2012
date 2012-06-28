@@ -27,7 +27,7 @@ for my $entry ( @$entries ) {
   for my $category ( @$categories ) {
     $csv->print( $cat, [ $name, $category ] );
   }
-  for my $type ( qw/hardware software/ ) {
+  for my $type ( qw/hardware software who dream/ ) {
     my $objects = $entry->{ $type . "_entities" };
     for my $object ( @$objects ) {
       $csv->print( $obj, [ $name, $type, map { $object->{ $_ } } qw/text url title/ ] );
