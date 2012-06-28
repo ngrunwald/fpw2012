@@ -18,6 +18,9 @@ my $entries = decode_json( $json );
 open my $obj, '>', 'objects.csv';
 open my $cat, '>', 'categories.csv';
 
+$csv->print( $cat, [ qw/name category/ ] );
+$csv->print( $obj, [ qw/name type text url title/ ] );
+
 for my $entry ( @$entries ) {
   my $name = $entry->{ name };
   my $categories = $entry->{ categories };
