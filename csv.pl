@@ -25,12 +25,12 @@ for my $entry ( @$entries ) {
   my $name = $entry->{ name };
   my $categories = $entry->{ categories };
   for my $category ( @$categories ) {
-    $csv->print( $cat, [ $name, $category ] );
+    $csv->print( $cat, [ $name, lc( $category ) ] );
   }
   for my $type ( qw/hardware software who dream/ ) {
     my $objects = $entry->{ $type . "_entities" };
     for my $object ( @$objects ) {
-      $csv->print( $obj, [ $name, $type, map { $object->{ $_ } } qw/text url title/ ] );
+      $csv->print( $obj, [ $name, $type, map { lc( $object->{ $_ } ) } qw/text url title/ ] );
     }
   }
 }
